@@ -1,0 +1,20 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Главная{% endblock %} :: Доска объявелний</title>
+</head>
+<body>
+    <header>Объявления</header>
+    <nav>
+        <a href="{% url 'index' %}">Главная</a>
+        <a href="{% url 'add' %}">Добавить</a>
+        {% for rubric in rubrics %}
+        <a href="{% url 'by_rubric' rubric.pk %}">{{ rubric.name }}</a>
+        {% endfor %}
+    </nav>
+<section>
+    {% block content %}
+    {% endblock %}
+</section>
+</body>
+</html>
